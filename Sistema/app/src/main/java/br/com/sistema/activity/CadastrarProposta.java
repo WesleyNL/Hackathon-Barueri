@@ -1,13 +1,15 @@
-package br.com.sistema;
+package br.com.sistema.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CadastroActivity extends AppCompatActivity {
+import br.com.sistema.R;
+
+public class CadastrarProposta extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro);
+        setContentView(R.layout.activity_cadastrar_proposta);
     }
 }

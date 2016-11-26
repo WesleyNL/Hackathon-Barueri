@@ -1,13 +1,15 @@
-package br.com.sistema;
+package br.com.sistema.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class BemVindoActivity extends AppCompatActivity {
+import br.com.sistema.R;
+
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bem_vindo);
+        setContentView(R.layout.activity_login);
     }
 }

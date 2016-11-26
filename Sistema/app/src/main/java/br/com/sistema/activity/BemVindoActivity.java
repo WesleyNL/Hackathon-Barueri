@@ -1,13 +1,15 @@
-package br.com.sistema;
+package br.com.sistema.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class CadastrarProposta extends AppCompatActivity {
+import br.com.sistema.R;
+
+public class BemVindoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_proposta);
+        setContentView(R.layout.activity_bem_vindo);
     }
 }
