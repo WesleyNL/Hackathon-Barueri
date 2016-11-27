@@ -30,7 +30,6 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.txtID.setText(contratos.get(position).getId());
-        holder.txtNomeBem.setText(contratos.get(position).getVeiculo().getNomeBem());
     }
 
     @Override
@@ -41,13 +40,11 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView txtID;
-        public TextView txtNomeBem;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             txtID = (TextView) itemView.findViewById(R.id.txtID);
-            txtNomeBem = (TextView) itemView.findViewById(R.id.txtNomeBem);
         }
     }
 }
