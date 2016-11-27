@@ -1,15 +1,15 @@
-package br.com.sistema.activity;
+package br.com.insure.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import br.com.sistema.R;
+import br.com.insure.R;
 
-public class CadastrarProposta extends AppCompatActivity {
+public class SegurosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_proposta);
+        setContentView(R.layout.activity_seguros);
     }
 }

@@ -1,16 +1,14 @@
-package br.com.sistema.adapter;
+package br.com.insure.adapter;
 
-import android.preference.EditTextPreference;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 
-import br.com.sistema.R;
+import br.com.insure.R;
 
 /**
  * Created by Jefferson on 26/11/2016.

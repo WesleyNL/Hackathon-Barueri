@@ -1,4 +1,4 @@
-package br.com.sistema.business;
+package br.com.insure.business;
 
 /**
  * Created by Wesley on 26/11/2016.

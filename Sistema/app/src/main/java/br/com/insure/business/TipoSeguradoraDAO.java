@@ -1,4 +1,4 @@
-package br.com.sistema.business;
+package br.com.insure.business;
 
 import java.util.LinkedList;
 

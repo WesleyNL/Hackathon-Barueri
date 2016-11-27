@@ -1,11 +1,11 @@
-package br.com.sistema.activity;
+package br.com.insure.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import br.com.sistema.R;
+import br.com.insure.R;
 
 public class BemVindoActivity extends AppCompatActivity {
 

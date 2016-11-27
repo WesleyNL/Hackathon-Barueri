@@ -1,4 +1,4 @@
-package br.com.sistema.activity;
+package br.com.insure.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,9 +10,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import br.com.sistema.R;
-import br.com.sistema.business.ClienteBD;
-import br.com.sistema.business.ClienteDAO;
+import br.com.insure.R;
+import br.com.insure.business.ClienteBD;
+import br.com.insure.business.ClienteDAO;
 
 public class LoginActivity extends AppCompatActivity {
 
