@@ -5,7 +5,7 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        applicationId "br.com.sistema"
+        applicationId "br.com.insure"
         minSdkVersion 21
         targetSdkVersion 23
         versionCode 1

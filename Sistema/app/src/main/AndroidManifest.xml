@@ -8,17 +8,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="br.com.insure.activity.BemVindoActivity">
+        <activity android:name=".activity.BemVindoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="br.com.insure.activity.LoginActivity" />
-        <activity android:name="br.com.insure.activity.CadastroActivity" />
-        <activity android:name="br.com.insure.activity.SegurosActivity" />
-        <activity android:name="br.com.insure.activity.CadastrarProposta"></activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.CadastroActivity" />
+        <activity android:name=".activity.SegurosActivity" />
+        <activity android:name=".activity.CadastrarPropostaActivity" />
     </application>
 
 </manifest>

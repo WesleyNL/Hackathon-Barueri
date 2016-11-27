@@ -10,24 +10,21 @@
     tools:context=".activity.BemVindoActivity">
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Acessar conta"
         android:id="@+id/btnAcessarMinhaConta"
         android:layout_above="@+id/btnCadastrar"
         android:layout_centerHorizontal="true"
-        android:singleLine="false"
         android:onClick="minhaConta"/>
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
         android:id="@+id/btnCadastrar"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/btnAcessarMinhaConta"
-        android:layout_marginBottom="45dp"
+        android:layout_centerHorizontal="true"
         android:onClick="cadastrar"/>
+
 </RelativeLayout>
