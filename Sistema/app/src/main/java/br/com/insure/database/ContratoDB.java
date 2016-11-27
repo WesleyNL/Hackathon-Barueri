@@ -57,11 +57,11 @@ public class ContratoDB {
         return true;
     }
 
-    public LinkedList<Contrato> carregarContratos() {
+    public LinkedList<ContratoDAO> carregarContratos() {
         GETParametros parametros = new GETParametros();
         parametros.put("cliente", Sistema.cliente.getCodigo());
 
-        LinkedList<Contrato> contratos = new LinkedList<>();
+        LinkedList<ContratoDAO> contratos = new LinkedList<>();
 
         try {
             Response response = servidor.requestGET(Models.CONTRATO, "carregarContratos", parametros);
@@ -77,6 +77,7 @@ public class ContratoDB {
                 ContratoDAO contrato = new ContratoDAO();
 
                 contrato.setId(json.getJSONObject(i).getInt("id"));
+                contrato.setSituacao((byte) json.getJSONObject(i).getInt("situacao"));
                 contrato.getVeiculo().setModelo(jsonVeiculo.getString("modelo"));
                 contrato.getVeiculo().setAno(jsonVeiculo.getInt("ano"));
                 contrato.getVeiculo().setTempoHabilitacao(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(jsonVeiculo.getString("tempoHabilitado").replaceAll("Z$", "+0000")));

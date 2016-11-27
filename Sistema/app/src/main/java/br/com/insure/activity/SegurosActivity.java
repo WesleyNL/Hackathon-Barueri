@@ -3,6 +3,8 @@ package br.com.insure.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +18,8 @@ import br.com.insure.R;
 import br.com.insure.adapter.ContratosAdapter;
 import br.com.insure.business.Contrato;
 import br.com.insure.business.ContratoDAO;
+import br.com.insure.business.Veiculo;
+import br.com.insure.utilidades.FuncoesData;
 
 public class SegurosActivity extends Activity {
 
@@ -38,33 +42,37 @@ public class SegurosActivity extends Activity {
     protected void onResume() {
         super.onResume();
 
-        carregar();
+//        carregar();
     }
 
     public void carregar(){
 
         final Context context = this;
         final Handler hRecycleView = new Handler();
+        final LinkedList<ContratoDAO> listaContratos = objContratoDAO.carregarContratos();
 
-                final LinkedList<Contrato> listaContratos = objContratoDAO.carregarContratos();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
 
+                hRecycleView.post(new Runnable() {
+                    @Override
+                    public void run() {
                         if (listaContratos == null || listaContratos.isEmpty()) {
                             Toast.makeText(context, "Nenhum contrato encontrado", Toast.LENGTH_LONG).show();
-                            if (listaContratos == null) ;
-                                return;
-                            }
-
+                            return;
+                        }
 
                         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-                        recyclerView.setVisibility(View.INVISIBLE);
                         recyclerView.setHasFixedSize(true);
                         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-                        adapter = new ContratosAdapter(context, listaContratos);
+                        adapter = new ContratosAdapter(SegurosActivity.this, listaContratos);
                         recyclerView.setAdapter(adapter);
-                        recyclerView.setVisibility(View.VISIBLE);
-
-
+                    }
+                });
+            }
+        }).start();
     }
 
     public void criarProposta(View view){

@@ -14,6 +14,7 @@ import java.util.List;
 import br.com.insure.R;
 import br.com.insure.activity.ContratoActivity;
 import br.com.insure.business.Contrato;
+import br.com.insure.business.ContratoDAO;
 
 /**
  * Created by Jefferson on 26/11/2016.
@@ -21,9 +22,9 @@ import br.com.insure.business.Contrato;
 public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.ViewHolder> {
 
     private Context context;
-    private LinkedList<Contrato> contratos;
+    private LinkedList<ContratoDAO> contratos;
 
-    public ContratosAdapter(Context context, LinkedList<Contrato> contratos) {
+    public ContratosAdapter(Context context, LinkedList<ContratoDAO> contratos) {
         this.context = context;
         this.contratos = contratos;
     }
@@ -39,7 +40,7 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.txtID.setText(contratos.get(position).getId());
+        holder.lblID.setText(String.valueOf(contratos.get(position).getId()));
         holder.setPosicao(position);
     }
 
@@ -50,14 +51,14 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public TextView txtID;
+        public TextView lblID;
         private int posicao;
 
         public ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
 
-            txtID = (TextView) itemView.findViewById(R.id.txtID);
+            lblID = (TextView) itemView.findViewById(R.id.lblID);
         }
 
         @Override

@@ -61,13 +61,13 @@ public class ContratoActivity extends AppCompatActivity {
 
     public void carregar(){
 
-        objContratoDAO.carregarContratos();
+        objContratoDAO = objContratoDAO.carregarContratos().get(0);
 
         imgFotoFrontal.setImageBitmap(objContratoDAO.getVeiculo().getBmpFotoFrontal());
         imgFotoLateral.setImageBitmap(objContratoDAO.getVeiculo().getBmpFotoLateral());
-        txtTempoHabilitacao.getEditText().setText(FuncoesData.formatDate(objContratoDAO.getData(), FuncoesData.DDMMYYYY));
+        txtTempoHabilitacao.getEditText().setText(FuncoesData.formatDate(objContratoDAO.getVeiculo().getTempoHabilitacao(), FuncoesData.DDMMYYYY));
         txtModelo.getEditText().setText(objContratoDAO.getVeiculo().getModelo());
-        txtAno.getEditText().setText(objContratoDAO.getVeiculo().getAno());
+        txtAno.getEditText().setText(String.valueOf(objContratoDAO.getVeiculo().getAno()));
         chkAlarme.setChecked(objContratoDAO.getVeiculo().getAlarme() == 1);
         chkOutrosMotoristas.setChecked(objContratoDAO.getVeiculo().getOutrosMotoristas() == 1);
 

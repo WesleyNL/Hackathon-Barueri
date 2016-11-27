@@ -20,7 +20,8 @@ module.exports = {
             
             Contrato.create({
                 cliente: req.param('cliente'),
-                veiculo: req.param('veiculo')
+                veiculo: veiculo.id,
+                situacao: 1
             }).then(function(contrato) {
                 return res.json(contrato);
             }).catch(function cbError(err) {

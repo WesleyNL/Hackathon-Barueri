@@ -10,7 +10,7 @@ public class Contrato {
     private int id;
     private byte situacao;
     private Date data;
-    private Veiculo veiculo;
+    private Veiculo veiculo = new Veiculo();
 
     public int getId() {
         return id;

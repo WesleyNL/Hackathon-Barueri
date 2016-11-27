@@ -16,6 +16,11 @@ module.exports = {
         veiculo: {
             model: 'Veiculo',
             required: true
+        },
+
+        situacao: {
+            type: 'integer',
+            required: true
         }
     }
 };
