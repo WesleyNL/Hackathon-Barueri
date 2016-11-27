@@ -17,7 +17,8 @@
         android:id="@+id/btnAcessarMinhaConta"
         android:layout_above="@+id/btnCadastrar"
         android:layout_centerHorizontal="true"
-        android:singleLine="false" />
+        android:singleLine="false"
+        android:onClick="minhaConta"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -27,5 +28,6 @@
         android:id="@+id/btnCadastrar"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/btnAcessarMinhaConta"
-        android:layout_marginBottom="45dp" />
+        android:layout_marginBottom="45dp"
+        android:onClick="cadastrar"/>
 </RelativeLayout>
