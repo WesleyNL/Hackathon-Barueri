@@ -18,7 +18,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Email" />
+            android:hint="Email"
+            android:backgroundTint="@android:color/holo_blue_light" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -33,7 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="textPassword"
-            android:hint="Senha" />
+            android:hint="Senha"
+            android:backgroundTint="@android:color/holo_blue_light" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -49,6 +51,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:backgroundTint="@android:color/holo_blue_light"
         android:text="Logar"
         android:id="@+id/btnLogar"
         android:layout_below="@+id/checkBox"

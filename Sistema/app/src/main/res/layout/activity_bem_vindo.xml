@@ -9,6 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activity.BemVindoActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:src="@mipmap/icone"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,23 +24,22 @@
         android:id="@+id/btnAcessarMinhaConta"
         android:layout_above="@+id/btnCadastrar"
         android:layout_centerHorizontal="true"
-        android:onClick="minhaConta"/>
+        android:onClick="minhaConta"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:backgroundTint="@android:color/holo_blue_light"
+        android:textSize="18dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cadastrar"
         android:id="@+id/btnCadastrar"
+        android:onClick="cadastrar"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@android:color/transparent"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="cadastrar"/>
+        android:layout_centerHorizontal="true" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@mipmap/icone"
-        android:layout_above="@+id/btnAcessarMinhaConta"
-        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
