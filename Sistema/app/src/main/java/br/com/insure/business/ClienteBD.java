@@ -73,7 +73,7 @@ public class ClienteBD extends SQLiteOpenHelper {
     public boolean acessar(Cliente cliente){
         try {
             String sql = "SELECT * FROM " + BD_TABELA +
-                         " WHERE EMAIL = " + cliente.getEmail();
+                         " WHERE EMAIL = '" + cliente.getEmail() + "'";
 
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor cursor = db.rawQuery(sql, null);
@@ -101,7 +101,7 @@ public class ClienteBD extends SQLiteOpenHelper {
     public boolean existe(Cliente cliente){
         try {
             String sql = "SELECT * FROM " + BD_TABELA +
-                         " WHERE EMAIL = " + cliente.getEmail();
+                         " WHERE EMAIL = '" + cliente.getEmail() + "'";
 
             SQLiteDatabase db = this.getWritableDatabase();
             Cursor cursor = db.rawQuery(sql, null);

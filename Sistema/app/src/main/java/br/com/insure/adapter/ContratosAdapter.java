@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.LinkedList;
 
 import br.com.insure.R;
+import br.com.insure.business.Contrato;
 
 /**
  * Created by Jefferson on 26/11/2016.
@@ -28,8 +29,8 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.txtID.setText(contratos.get(position).getID());
-        holder.txtNomeBem.setText(contratos.get(position).getNomeBem());
+        holder.txtID.setText(contratos.get(position).getId());
+        holder.txtNomeBem.setText(contratos.get(position).getVeiculo().getNomeBem());
     }
 
     @Override

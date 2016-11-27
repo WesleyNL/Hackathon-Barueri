@@ -3,6 +3,7 @@ package br.com.insure.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -18,14 +19,24 @@ public class CadastroActivity extends AppCompatActivity {
 
     public ClienteDAO objClienteDAO;
 
+    public TextInputLayout txtNome;
+    public TextInputLayout txtEmail;
+    public TextInputLayout txtSenha;
+    public TextInputLayout txtSenhaConf;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         objClienteDAO = new ClienteDAO(new ClienteBD(this));
+
+        txtNome = (TextInputLayout) findViewById(R.id.txtNome);
+        txtEmail = (TextInputLayout) findViewById(R.id.txtEmail);
+        txtSenha = (TextInputLayout) findViewById(R.id.txtSenha);
+        txtSenhaConf = (TextInputLayout) findViewById(R.id.txtConfirmarSenha);
     }
 
     @Override
@@ -36,18 +47,11 @@ public class CadastroActivity extends AppCompatActivity {
 
     public void salvar(View view){
 
-        EditText txtNome = (EditText) findViewById(R.id.txtNome);
-        objClienteDAO.setNome(txtNome.getText().toString().trim());
+        objClienteDAO.setNome(txtNome.getEditText().getText().toString().trim());
+        objClienteDAO.setEmail(txtEmail.getEditText().getText().toString().trim());
+        objClienteDAO.setSenha(txtSenha.getEditText().getText().toString().trim());
 
-        EditText txtEmail = (EditText) findViewById(R.id.txtEmail);
-        objClienteDAO.setEmail(txtEmail.getText().toString().trim());
-
-        EditText txtSenha = (EditText) findViewById(R.id.txtSenha);
-        objClienteDAO.setSenha(txtSenha.getText().toString().trim());
-
-        EditText txtSenhaConf = (EditText) findViewById(R.id.txtConfirmarSenha);
-
-        if(objClienteDAO.getSenha().equalsIgnoreCase(txtSenhaConf.getText().toString())){
+        if(!objClienteDAO.getSenha().equalsIgnoreCase(txtSenhaConf.getEditText().getText().toString())){
             Toast.makeText(this, "Senha inválida", Toast.LENGTH_LONG).show();
             return;
         }
@@ -75,7 +79,6 @@ public class CadastroActivity extends AppCompatActivity {
             Toast.makeText(this, "Usuário cadastrado com sucesso", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, LoginActivity.class);
             startActivity(i);
-            finish();
         }else{
             Toast.makeText(this, "Login já cadastrado", Toast.LENGTH_LONG).show();
         }

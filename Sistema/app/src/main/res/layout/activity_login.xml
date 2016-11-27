@@ -53,7 +53,6 @@
         android:id="@+id/btnLogar"
         android:layout_below="@+id/checkBox"
         android:layout_centerHorizontal="true"
-        android:onClick="acessar"
-        />
+        android:onClick="acessar" />
 
 </RelativeLayout>
