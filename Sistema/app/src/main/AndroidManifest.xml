@@ -17,6 +17,7 @@
         <activity android:name=".activity.SegurosActivity" />
         <activity android:name=".activity.ContratoActivity" />
         <activity android:name=".activity.CadastrarPropostaActivity" />
+        <activity android:name=".activity.FingerPaintActivity" />
         <activity android:name=".activity.AppSplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

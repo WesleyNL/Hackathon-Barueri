@@ -3,6 +3,7 @@ package br.com.insure.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import br.com.insure.R;
 import br.com.insure.activity.ContratoActivity;
 import br.com.insure.business.Contrato;
 import br.com.insure.business.ContratoDAO;
+import br.com.insure.utilidades.FuncoesData;
 
 /**
  * Created by Jefferson on 26/11/2016.
@@ -40,7 +42,8 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.lblID.setText(String.valueOf(contratos.get(position).getId()));
+        holder.lblID.setText("#" + String.format("%07d", contratos.get(position).getId()));
+        holder.txtDataHabilitacao.setText(FuncoesData.formatDate(contratos.get(position).getData(), FuncoesData.DDMMYYYY));
         holder.setPosicao(position);
     }
 
@@ -52,6 +55,7 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView lblID;
+        public TextView txtDataHabilitacao;
         private int posicao;
 
         public ViewHolder(View itemView) {
@@ -59,6 +63,7 @@ public class ContratosAdapter extends RecyclerView.Adapter<ContratosAdapter.View
             itemView.setOnClickListener(this);
 
             lblID = (TextView) itemView.findViewById(R.id.lblID);
+            txtDataHabilitacao = (TextView) itemView.findViewById(R.id.txtDataHabilitacao);
         }
 
         @Override

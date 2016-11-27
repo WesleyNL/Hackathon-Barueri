@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Modelo"
-                    android:editable="true"
+                    android:editable="false"
                     android:backgroundTint="@android:color/holo_blue_light" />
 
             </android.support.design.widget.TextInputLayout>
@@ -59,7 +59,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Ano do Veículo"
-                    android:editable="true"
+                    android:editable="false"
                     android:backgroundTint="@android:color/holo_blue_light" />
 
             </android.support.design.widget.TextInputLayout>
@@ -75,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="Tempo de Habilitação"
-                    android:editable="true"
+                    android:editable="false"
                     android:backgroundTint="@android:color/holo_blue_light" />
 
             </android.support.design.widget.TextInputLayout>
@@ -121,6 +121,7 @@
                 android:id="@+id/chkOutrosMotoristas"
                 android:layout_below="@+id/imgFotoLateral"
                 style="@android:color/holo_blue_light"
+                android:editable="false"
                 android:layout_alignParentStart="true" />
 
             <CheckBox
@@ -128,6 +129,7 @@
                 android:layout_height="wrap_content"
                 android:text="Contém alarme?"
                 android:id="@+id/chkAlarme"
+                android:editable="false"
                 android:layout_below="@+id/chkOutrosMotoristas"
                 android:layout_alignParentStart="true" />
 

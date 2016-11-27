@@ -78,6 +78,7 @@ public class ContratoDB {
 
                 contrato.setId(json.getJSONObject(i).getInt("id"));
                 contrato.setSituacao((byte) json.getJSONObject(i).getInt("situacao"));
+                contrato.setData(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(jsonVeiculo.getString("createdAt").replaceAll("Z$", "+0000")));
                 contrato.getVeiculo().setModelo(jsonVeiculo.getString("modelo"));
                 contrato.getVeiculo().setAno(jsonVeiculo.getInt("ano"));
                 contrato.getVeiculo().setTempoHabilitacao(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").parse(jsonVeiculo.getString("tempoHabilitado").replaceAll("Z$", "+0000")));

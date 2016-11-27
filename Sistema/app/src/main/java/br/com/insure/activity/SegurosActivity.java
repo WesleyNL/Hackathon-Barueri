@@ -41,8 +41,6 @@ public class SegurosActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
-//        carregar();
     }
 
     public void carregar(){
