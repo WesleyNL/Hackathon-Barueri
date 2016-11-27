@@ -1,33 +1,33 @@
 package br.com.insure.activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
-import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-
 import br.com.insure.R;
 import br.com.insure.business.ContratoDAO;
 import br.com.insure.business.Veiculo;
 import br.com.insure.utilidades.FuncoesData;
 import br.com.insure.utilidades.Utils;
 
+import android.graphics.drawable.BitmapDrawable;
+import android.widget.ImageView;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
+import android.view.View;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class CadastrarPropostaActivity extends AppCompatActivity {
+public class CadastrarPropostaActivity extends Activity {
 
     private final int FOTO_FRONTAL = 0;
     private final int FOTO_LATERAL = 1;
 
     private ContratoDAO objContratoDAO;
 
-    private ImageButton imgFotoFrontal;
-    private ImageButton imgFotoLateral;
+    private ImageView imgFotoFrontal;
+    private ImageView imgFotoLateral;
 
     private TextInputLayout txtModelo;
     private TextInputLayout txtAno;
@@ -42,8 +42,8 @@ public class CadastrarPropostaActivity extends AppCompatActivity {
 
         objContratoDAO = new ContratoDAO();
 
-        imgFotoFrontal = (ImageButton) findViewById(R.id.imgFotoFrontal);
-        imgFotoLateral = (ImageButton) findViewById(R.id.imgFotoLateral);
+        imgFotoFrontal = (ImageView) findViewById(R.id.imgFotoFrontal);
+        imgFotoLateral = (ImageView) findViewById(R.id.imgFotoLateral);
 
         txtTempoHabilitacao = (TextInputLayout) findViewById(R.id.txtTempoHabilitacao);;
         txtModelo = (TextInputLayout) findViewById(R.id.txtModelo);
