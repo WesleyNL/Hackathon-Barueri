@@ -10,7 +10,6 @@ public class Cliente {
     private String nome;
     private String email;
     private String senha;
-    private int tipoSeguradora;
 
     public int getCodigo() {
         return codigo;
@@ -42,13 +41,5 @@ public class Cliente {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public int getTipoSeguradora() {
-        return tipoSeguradora;
-    }
-
-    public void setTipoSeguradora(int tipoSeguradora) {
-        this.tipoSeguradora = tipoSeguradora;
     }
 }
