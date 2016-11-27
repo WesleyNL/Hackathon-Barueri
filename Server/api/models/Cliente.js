@@ -8,7 +8,28 @@
 module.exports = {
 
   attributes: {
+      nome: {
+        type: 'string',
+        required: true,
+        size: 100
+      },
 
+      email: {
+        type: 'string',
+        required: true,
+        size: 100
+      },
+          
+      senha: {
+        type: 'string',
+        required: true,
+        size: 100
+      }, 
+
+      contratos: {
+        collection: 'Contrato',
+        via: 'cliente'
+      }
   }
 };
 

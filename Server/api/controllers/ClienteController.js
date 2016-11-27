@@ -6,28 +6,41 @@
  */
 
 module.exports = {
-	attributes: {
-        nome: {
-			type: 'string',
-			required: true,
-			size: 100
-		},
+	salvar: function(req, res) {
+        Cliente.create({
+            nome: req.param('nome'),
+            email: req.param('email'),
+            senha: req.param('senha')
+        }).then(function(cliente) {
+            return res.json(cliente);
+        }).catch(function cbError(err) {
+            return res.json(500, {
+                result: 'BAD_REQUEST',
+                reason: err
+            });
+        });
+    },
 
-        email: {
-			type: 'string',
-			required: true,
-			size: 100
-		},
-        
-        senha: {
-			type: 'string',
-			required: true,
-			size: 100
-		}, 
-
-        contratos: {
-            model: 'Contrato'
-        }
+    acessar: function(req, res) {
+        Cliente.find({
+            email: req.param('email'),
+            senha: req.param('senha')
+        }).then(function(cliente) {
+            
+            if (!cliente) {
+                return res.json(500, {
+                    result: 'BAD_REQUEST',
+                    reason: err
+                });
+            }
+            
+            return res.json(cliente);
+        }).catch(function cbError(err) {
+            return res.json(500, {
+                result: 'BAD_REQUEST',
+                reason: err
+            });
+        });
     }
 };
 

@@ -6,9 +6,17 @@
  */
 
 module.exports = {
+    attributes: {
 
-  attributes: {
+        cliente: {
+            model: 'Cliente',
+            required: true
+        },
 
-  }
+        veiculo: {
+            model: 'Veiculo',
+            required: true
+        }
+    }
 };
 

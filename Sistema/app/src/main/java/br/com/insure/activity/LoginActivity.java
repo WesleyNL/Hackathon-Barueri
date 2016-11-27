@@ -8,12 +8,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.insure.R;
-import br.com.insure.business.ClienteBD;
+import br.com.insure.Sistema;
 import br.com.insure.business.ClienteDAO;
 
 public class LoginActivity extends AppCompatActivity {
@@ -31,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //        getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        objCliente = new ClienteDAO(new ClienteBD(this));
+        Sistema.cliente = new ClienteDAO();
 
         SharedPreferences objSP = getSharedPreferences(LEMBRAR_LOGIN, MODE_PRIVATE);
         String email = objSP.getString("EMAIL", null);

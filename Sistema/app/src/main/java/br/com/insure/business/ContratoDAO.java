@@ -1,15 +1,21 @@
 package br.com.insure.business;
 
+import java.util.LinkedList;
+
+import br.com.insure.database.ContratoDB;
+
 /**
  * Created by Wesley on 27/11/2016.
  */
 public class ContratoDAO extends Contrato{
 
-    public boolean enviar(){
-        return true; //TODO servidor
+    private ContratoDB con = new ContratoDB();
+
+    public boolean salvarProposta(){
+        return con.salvarProposta(this);
     }
 
-    public void carregar(){
-        //TODO servidor para carregar obj this
+    public LinkedList<ContratoDAO> carregarContratos(){
+        return con.carregarContratos();
     }
 }

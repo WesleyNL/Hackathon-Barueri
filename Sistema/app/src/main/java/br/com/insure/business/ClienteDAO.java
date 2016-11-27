@@ -1,26 +1,20 @@
 package br.com.insure.business;
 
+import br.com.insure.database.ClienteDB;
+
 /**
  * Created by Wesley on 26/11/2016.
  */
 
 public class ClienteDAO extends Cliente {
 
-    private ClienteBD con;
+    private ClienteDB con = new ClienteDB();
 
-    public ClienteDAO(ClienteBD con){
-        this.con = con;
+    public boolean salvar() {
+        return con.salvar(this);
     }
 
-    public boolean salvar(){
-        return con.salvar(this, 0);
-    }
-
-    public boolean editar(){
-        return con.salvar(this, 1);
-    }
-
-    public boolean acessar(){
+    public boolean acessar() {
         return con.acessar(this);
     }
 }

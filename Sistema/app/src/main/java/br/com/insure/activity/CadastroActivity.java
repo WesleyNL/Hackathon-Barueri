@@ -8,11 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import br.com.insure.R;
-import br.com.insure.business.ClienteBD;
 import br.com.insure.business.ClienteDAO;
 
 public class CadastroActivity extends AppCompatActivity {

@@ -9,8 +9,6 @@ import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import java.text.Format;
-
 import br.com.insure.R;
 import br.com.insure.business.ContratoDAO;
 import br.com.insure.utilidades.FuncoesData;
@@ -63,7 +61,7 @@ public class ContratoActivity extends AppCompatActivity {
 
     public void carregar(){
 
-        objContratoDAO.carregar();
+        objContratoDAO.carregarContratos();
 
         imgFotoFrontal.setImageBitmap(objContratoDAO.getVeiculo().getBmpFotoFrontal());
         imgFotoLateral.setImageBitmap(objContratoDAO.getVeiculo().getBmpFotoLateral());

@@ -93,7 +93,7 @@ public class CadastrarPropostaActivity extends AppCompatActivity {
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 
         dialogo.setTitle("Confirmar");
-        dialogo.setMessage("Deseja realmente enviar?");
+        dialogo.setMessage("Deseja realmente salvarProposta?");
         dialogo.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 enviar();
@@ -104,13 +104,13 @@ public class CadastrarPropostaActivity extends AppCompatActivity {
     }
 
     public void enviar(){
-        if(objContratoDAO.enviar()){
+        if(objContratoDAO.salvarProposta()){
             Toast.makeText(this, "Enviado com sucesso", Toast.LENGTH_LONG).show();
             Intent i = new Intent(this, ContratoActivity.class);
             i.putExtra("ID", objContratoDAO.getId());
             startActivity(i);
         }else{
-            Toast.makeText(this, "Não foi possível enviar", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Não foi possível salvarProposta", Toast.LENGTH_LONG).show();
         }
     }
 }
