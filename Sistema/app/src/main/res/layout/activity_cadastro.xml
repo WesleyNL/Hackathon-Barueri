@@ -72,6 +72,7 @@
         android:text="Cadastrar"
         android:id="@+id/btnCadastrar"
         android:layout_below="@+id/txtConfirmarSenha"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="salvar"/>
 
 </RelativeLayout>
