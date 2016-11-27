@@ -129,7 +129,9 @@
                 android:text="Download Contrato"
                 android:id="@+id/btnDownloadContrato"
                 android:layout_below="@+id/chkAlarme"
-                android:layout_centerHorizontal="true" />
+                android:layout_centerHorizontal="true"
+                android:onClick="downloadContrato"
+                />
 
         </RelativeLayout>
 

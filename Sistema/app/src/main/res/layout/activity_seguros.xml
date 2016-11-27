@@ -15,7 +15,8 @@
         android:text="Criar Proposta"
         android:id="@+id/btnCriarProposta"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="criarProposta"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
