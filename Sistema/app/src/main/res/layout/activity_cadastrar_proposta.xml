@@ -33,7 +33,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Modelo" />
+                    android:hint="Modelo"
+                    android:backgroundTint="@android:color/holo_blue_light" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -47,7 +48,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Ano do Veículo" />
+                    android:hint="Ano do Veículo"
+                    android:backgroundTint="@android:color/holo_blue_light" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -61,7 +63,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Tempo de Habilitação" />
+                    android:hint="Tempo de Habilitação"
+                    android:backgroundTint="@android:color/holo_blue_light" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -75,6 +78,8 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:minWidth="150dp"
                 android:id="@+id/imgFotoFrontal"
                 android:src="@android:drawable/ic_menu_camera"
                 android:layout_below="@id/lblFotoFrontal"
@@ -90,6 +95,8 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="150dp"
+                android:minWidth="150dp"
                 android:id="@+id/imgFotoLateral"
                 android:src="@android:drawable/ic_menu_camera"
                 android:layout_below="@id/lblFotoLateral"
@@ -101,6 +108,7 @@
                 android:text="Outros motoristas dirigem?"
                 android:id="@+id/chkOutrosMotoristas"
                 android:layout_below="@+id/imgFotoLateral"
+                style="@android:color/holo_blue_light"
                 android:layout_alignParentStart="true" />
 
             <CheckBox
@@ -109,6 +117,7 @@
                 android:text="Contém alarme?"
                 android:id="@+id/chkAlarme"
                 android:layout_below="@+id/chkOutrosMotoristas"
+                style="@android:color/holo_blue_light"
                 android:layout_alignParentStart="true" />
 
             <Button
@@ -118,7 +127,10 @@
                 android:id="@+id/btnEnviarProposta"
                 android:layout_below="@+id/chkAlarme"
                 android:layout_centerHorizontal="true"
-                android:onClick="enviar"/>
+                android:onClick="enviar"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:backgroundTint="@android:color/holo_blue_light"
+                />
 
         </RelativeLayout>
 
