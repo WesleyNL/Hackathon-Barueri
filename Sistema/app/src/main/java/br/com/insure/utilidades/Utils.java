@@ -3,10 +3,13 @@ package br.com.insure.utilidades;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Parcelable;
 import android.provider.MediaStore;
+import android.util.Base64;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,5 +58,11 @@ public class Utils {
         File imageFile = new File(context.getExternalCacheDir(), "tempImage");
         imageFile.getParentFile().mkdirs();
         return imageFile;
+    }
+
+    public static byte[] getBitMapToArray(Bitmap image){
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.PNG, 0, stream);
+        return stream.toByteArray();
     }
 }

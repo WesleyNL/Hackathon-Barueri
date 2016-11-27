@@ -1,5 +1,6 @@
 package br.com.insure.database;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
@@ -54,7 +55,10 @@ public class ClienteDB {
 
             if (response.getCodeResponse() != HttpURLConnection.HTTP_OK) {
                 return false;
-            };
+            }
+
+            cliente.setCodigo(new JSONArray(response.getMessageResponse()).getJSONObject(0).getInt("id"));
+            cliente.setNome(new JSONArray(response.getMessageResponse()).getJSONObject(0).getString("nome"));
         }
         catch (Exception e) {
             return false;

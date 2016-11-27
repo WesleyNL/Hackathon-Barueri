@@ -1,6 +1,8 @@
 package br.com.insure.database;
 
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,6 +18,7 @@ import br.com.insure.enums.Models;
 import br.com.insure.servidor.GETParametros;
 import br.com.insure.servidor.Response;
 import br.com.insure.servidor.Servidor;
+import br.com.insure.utilidades.Utils;
 
 /**
  * Created by Jefferson on 27/11/2016.
@@ -34,12 +37,12 @@ public class ContratoDB {
             json.put("modelo", contrato.getVeiculo().getModelo());
             json.put("ano", contrato.getVeiculo().getAno());
             json.put("tempoHabilitado", contrato.getVeiculo().getTempoHabilitacao());
-            json.put("fotoFrontal", contrato.getVeiculo().getBmpFotoFrontal());
-            json.put("fotoLateral", contrato.getVeiculo().getBmpFotoLateral());
+            json.put("fotoFrontal", String.valueOf(Utils.getBitMapToArray(contrato.getVeiculo().getBmpFotoFrontal())));
+            json.put("fotoLateral", String.valueOf(Utils.getBitMapToArray(contrato.getVeiculo().getBmpFotoLateral())));
             json.put("hasOutrosMotoristas", contrato.getVeiculo().getOutrosMotoristas() == 1);
             json.put("hasAlarme", contrato.getVeiculo().getAlarme() == 1);
 
-            response = servidor.requestPOST(Models.CLIENTE, "salvar", json.toString());
+            response = servidor.requestPOST(Models.CONTRATO, "salvar", json.toString());
 
             if (response.getCodeResponse() != HttpURLConnection.HTTP_OK) {
                 return false;
@@ -54,14 +57,14 @@ public class ContratoDB {
         return true;
     }
 
-    public LinkedList<ContratoDAO> carregarContratos() {
+    public LinkedList<Contrato> carregarContratos() {
         GETParametros parametros = new GETParametros();
         parametros.put("cliente", Sistema.cliente.getCodigo());
 
-        LinkedList<ContratoDAO> contratos = new LinkedList<>();
+        LinkedList<Contrato> contratos = new LinkedList<>();
 
         try {
-            Response response = servidor.requestGET(Models.CLIENTE, "carregarContratos", parametros);
+            Response response = servidor.requestGET(Models.CONTRATO, "carregarContratos", parametros);
 
             if (response.getCodeResponse() != HttpURLConnection.HTTP_OK) {
                 throw new Exception("ERRO LOL");

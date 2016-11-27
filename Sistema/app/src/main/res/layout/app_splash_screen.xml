@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".splashscreen.AppSplashScreenActivity"
+    android:background="#10e2ea">
+
+    <ImageView
+        android:id="@+id/imgSplashScreen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/icone"
+        android:background="#f8ffff" />
+
+</RelativeLayout>

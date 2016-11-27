@@ -15,7 +15,7 @@ public class ContratoDAO extends Contrato{
         return con.salvarProposta(this);
     }
 
-    public LinkedList<ContratoDAO> carregarContratos(){
+    public LinkedList<Contrato> carregarContratos(){
         return con.carregarContratos();
     }
 }

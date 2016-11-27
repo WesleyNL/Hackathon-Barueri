@@ -27,4 +27,12 @@
         android:layout_centerHorizontal="true"
         android:onClick="cadastrar"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@mipmap/icone"
+        android:layout_above="@+id/btnAcessarMinhaConta"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

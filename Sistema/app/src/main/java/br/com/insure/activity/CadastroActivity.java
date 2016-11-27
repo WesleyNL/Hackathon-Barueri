@@ -1,5 +1,6 @@
 package br.com.insure.activity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,7 +14,7 @@ import android.widget.Toast;
 import br.com.insure.R;
 import br.com.insure.business.ClienteDAO;
 
-public class CadastroActivity extends AppCompatActivity {
+public class CadastroActivity extends Activity {
 
     public ClienteDAO objClienteDAO;
 
@@ -29,7 +30,7 @@ public class CadastroActivity extends AppCompatActivity {
 
 //        getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        objClienteDAO = new ClienteDAO(new ClienteBD(this));
+        objClienteDAO = new ClienteDAO();
 
         txtNome = (TextInputLayout) findViewById(R.id.txtNome);
         txtEmail = (TextInputLayout) findViewById(R.id.txtEmail);

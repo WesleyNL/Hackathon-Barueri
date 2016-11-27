@@ -9,4 +9,5 @@ import br.com.insure.business.ClienteDAO;
 public class Sistema {
 
     public static ClienteDAO cliente;
+
 }

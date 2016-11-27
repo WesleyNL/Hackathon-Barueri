@@ -1,13 +1,16 @@
 package br.com.insure.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.security.AccessControlContext;
+
 import br.com.insure.R;
 
-public class BemVindoActivity extends AppCompatActivity {
+public class BemVindoActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -3,6 +3,7 @@ package br.com.insure.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -89,6 +90,10 @@ public class CadastrarPropostaActivity extends AppCompatActivity {
         objVeiculo.setModelo(txtModelo.getEditText().getText().toString());
         objVeiculo.setOutrosMotoristas(chkOutrosMotoristas.isChecked() ? (byte) 1 : (byte) 0);
         objVeiculo.setTempoHabilitacao(FuncoesData.toDate(txtTempoHabilitacao.getEditText().getText().toString(), FuncoesData.DDMMYYYY));
+        objVeiculo.setBmpFotoFrontal(((BitmapDrawable) imgFotoFrontal.getDrawable()).getBitmap());
+        objVeiculo.setBmpFotoLateral(((BitmapDrawable) imgFotoLateral.getDrawable()).getBitmap());
+
+        objContratoDAO.setVeiculo(objVeiculo);
 
         AlertDialog.Builder dialogo = new AlertDialog.Builder(this);
 

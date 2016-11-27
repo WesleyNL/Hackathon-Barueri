@@ -25,7 +25,7 @@ public class Servidor {
     }
 
     public static Response requestGET(Models model, String endPoint, GETParametros parametros) {
-        String url = "http://localhost:1337/" + model.name();
+        String url = "http://192.168.0.52:1337/" + model.name();
 
         if (endPoint.length() > 0)
             url += "/" + endPoint;
@@ -71,7 +71,7 @@ public class Servidor {
         Response response = new Response();
         okhttp3.Response r;
 
-        String url = "http://localhost:1337/" + model.name().toLowerCase() + "/" + endPoint;
+        String url = "http://192.168.0.52:1337/" + model.name().toLowerCase() + "/" + endPoint;
 
         RequestBody body = RequestBody.create(JSON, postParametros);
         Request request = new Request.Builder()

@@ -1,5 +1,6 @@
 package br.com.insure.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
@@ -14,9 +15,8 @@ import br.com.insure.R;
 import br.com.insure.Sistema;
 import br.com.insure.business.ClienteDAO;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity {
 
-    public ClienteDAO objCliente;
     public static final String LEMBRAR_LOGIN = "LEMBRAR_LOGIN";
 
     private TextInputLayout txtEmail = null;
@@ -57,15 +57,15 @@ public class LoginActivity extends AppCompatActivity {
 
     public void acessar(View view){
 
-        objCliente.setEmail(txtEmail.getEditText().getText().toString().trim());
-        objCliente.setSenha(txtSenha.getEditText().getText().toString().trim());
+        Sistema.cliente.setEmail(txtEmail.getEditText().getText().toString().trim());
+        Sistema.cliente.setSenha(txtSenha.getEditText().getText().toString().trim());
 
-        if(objCliente.getEmail().isEmpty() || objCliente.getSenha().isEmpty()){
+        if(Sistema.cliente.getEmail().isEmpty() || Sistema.cliente.getSenha().isEmpty()){
             Toast.makeText(this, "Usuário ou senha inválidos", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(!objCliente.acessar()){
+        if(!Sistema.cliente.acessar()){
             Toast.makeText(this, "Usuário ou senha inválidos", Toast.LENGTH_LONG).show();
             return;
         }
@@ -75,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor objSP = getSharedPreferences(LEMBRAR_LOGIN, MODE_PRIVATE).edit();
 
         if(chkLembrar.isChecked()){
-            objSP.putString("EMAIL", objCliente.getEmail());
-            objSP.putString("SENHA", objCliente.getSenha());
+            objSP.putString("EMAIL", Sistema.cliente.getEmail());
+            objSP.putString("SENHA", Sistema.cliente.getSenha());
         }else{
             objSP.clear();
         }
