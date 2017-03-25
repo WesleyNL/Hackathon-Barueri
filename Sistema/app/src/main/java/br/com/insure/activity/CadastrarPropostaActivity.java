@@ -7,6 +7,8 @@ import br.com.insure.utilidades.FuncoesData;
 import br.com.insure.utilidades.Utils;
 
 import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
 import android.app.Activity;
@@ -19,21 +21,11 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-public class CadastrarPropostaActivity extends Activity {
+public class CadastrarPropostaActivity extends AppCompatActivity {
 
-    private final int FOTO_FRONTAL = 0;
-    private final int FOTO_LATERAL = 1;
+    private CadastrarPropostaAbasActivity adapter;
 
-    private ContratoDAO objContratoDAO;
-
-    private ImageView imgFotoFrontal;
-    private ImageView imgFotoLateral;
-
-    private TextInputLayout txtModelo;
-    private TextInputLayout txtAno;
-    private TextInputLayout txtTempoHabilitacao;
-    private CheckBox chkOutrosMotoristas;
-    private CheckBox chkAlarme;
+    public static ContratoDAO objContratoDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,56 +34,13 @@ public class CadastrarPropostaActivity extends Activity {
 
         objContratoDAO = new ContratoDAO();
 
-        imgFotoFrontal = (ImageView) findViewById(R.id.imgFotoFrontal);
-        imgFotoLateral = (ImageView) findViewById(R.id.imgFotoLateral);
-
-        txtTempoHabilitacao = (TextInputLayout) findViewById(R.id.txtTempoHabilitacao);;
-        txtModelo = (TextInputLayout) findViewById(R.id.txtModelo);
-        txtAno = (TextInputLayout) findViewById(R.id.txtAno);;
-        chkOutrosMotoristas = (CheckBox) findViewById(R.id.chkOutrosMotoristas);
-        chkAlarme = (CheckBox) findViewById(R.id.chkAlarme);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        switch (requestCode) {
-        case FOTO_FRONTAL:
-            if (resultCode == RESULT_OK) {
-                imgFotoFrontal.setImageURI(data.getData());
-            }
-            break;
-        case FOTO_LATERAL:
-            if (resultCode == RESULT_OK) {
-                imgFotoLateral.setImageURI(data.getData());
-            }
-            break;
-        }
-    }
-
-    public void enviarFotoFrontal(View view) {
-        encontrarFoto(FOTO_FRONTAL);
-    }
-
-    public void enviarFotoLateral(View view) {
-        encontrarFoto(FOTO_LATERAL);
-    }
-
-    private void encontrarFoto(int foto) {
-        startActivityForResult(Utils.getPickImageIntent(this), foto);
+        adapter = new CadastrarPropostaAbasActivity(getSupportFragmentManager(), this);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(1);
     }
 
     public void enviar(View view){
-
-        Veiculo objVeiculo = new Veiculo();
-        objVeiculo.setAlarme(chkAlarme.isChecked() ? (byte) 1 : (byte) 0);
-        objVeiculo.setAno(Integer.parseInt(txtAno.getEditText().getText().toString()));
-        objVeiculo.setModelo(txtModelo.getEditText().getText().toString());
-        objVeiculo.setOutrosMotoristas(chkOutrosMotoristas.isChecked() ? (byte) 1 : (byte) 0);
-        objVeiculo.setTempoHabilitacao(FuncoesData.toDate(txtTempoHabilitacao.getEditText().getText().toString(), FuncoesData.DDMMYYYY));
-        objVeiculo.setBmpFotoFrontal(((BitmapDrawable) imgFotoFrontal.getDrawable()).getBitmap());
-        objVeiculo.setBmpFotoLateral(((BitmapDrawable) imgFotoLateral.getDrawable()).getBitmap());
 
         objContratoDAO.setVeiculo(objVeiculo);
 
